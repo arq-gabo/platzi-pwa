@@ -8,7 +8,7 @@ export default {
 }
 
 async function getLatest() {
-  const request = await fetch(`${baseUrl}/search.php?f=b`)
+  const request = await fetch(`${baseUrl}/search.php?f=c`)
   const data = await request.json()
   const recipes = data.meals.map((m) => normalizeMeal(m))
 
