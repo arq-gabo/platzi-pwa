@@ -8,7 +8,8 @@ PWA que utiliza la API de MealDB para mostrar recetas con sus instrucciones. Alg
 - Estrategias de Red apropiadas para cada recurso
 - Add to Home Screen
 - Web Share API
-- Creado con [Create React App](https://github.com/facebookincubator/create-react-app).
+
+[Mira la app en producción](https://platzi-pwa-olive.vercel.app/).
 
 ## Scripts
 
