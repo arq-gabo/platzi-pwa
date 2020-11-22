@@ -8,7 +8,23 @@ export default class Timer extends React.Component {
   }
 
   start = async () => {
-    // TODO: Chequear permisos
+    if( !( 'Notification' in window ) || !( 'serviceWorker' in navigator )){
+      return alert('Tu navegador no soporta notificaciones')
+    }
+
+    if( Notification.permission === 'default'){
+      await Notification.requestPermission()
+    }
+
+    if( Notification.permission === 'blocked'){
+      return alert("Bloqueastes las notificaciones :(")
+    }
+
+    if( Notification.permission !== 'granted'){
+      return;
+    }
+
+
 
     var timer = this.state.timer
     this.setState({ timeLeft: timer })
@@ -24,7 +40,13 @@ export default class Timer extends React.Component {
   }
 
   showNotification = async () => {
-    // TODO: Enviar Notificación
+    const registration = await navigator.serviceWorker.getRegistration()
+    if ( !registration ) return alert("No hay un Service Worker :(")
+
+    registration.showNotification("Listo el timer!", {
+      body: 'Ding, Ding, Ding!!!',
+      img: '/icon.png'
+    })
   }
 
   handleChange = (e) => {
