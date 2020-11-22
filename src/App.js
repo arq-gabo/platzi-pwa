@@ -7,6 +7,7 @@ import './App.css'
 
 import { createBrowserHistory } from 'history'
 import ReactGA from 'react-ga'
+import IfOffline from './components/ifOffline'
 
 const history = createBrowserHistory()
 
@@ -25,7 +26,7 @@ export default class App extends React.Component {
       <Router history={ history }>
         <div>
           <header>
-            <Link to="/">Recetas</Link>
+            <Link to="/">Recetas <IfOffline>Offline</IfOffline> </Link>
           </header>
 
           <main>
